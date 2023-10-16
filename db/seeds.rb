@@ -17,9 +17,7 @@ post2 = Post.create(title: "Second", content: "this is my second post")
 parent_comment1 = Comment.create(commentary: "This is great!", post: post)
 parent_comment2 = Comment.create(commentary: "This is a great news!", post: post)
 
-comment1 = Comment.create(commentary: "I am the child comment 1", parent_comment: parent_comment1, post: post)
-comment2 = Comment.create(commentary: "I am the child comment 2", parent_comment: parent_comment1, post: post)
-
-reply_to_comment1 = Comment.create(commentary: "I am the reply to the child comment", parent_comment: comment1, post: post)
+comment1 = Comment.create(commentary: "I am the child comment 1", post: post, parent_comment: parent_comment1)
+comment2 = Comment.create(commentary: "I am the child comment 2", post: post, parent_comment: parent_comment1)
 
 puts "Finished!"
