@@ -1,0 +1,28 @@
+<h1>Posts</h1>
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <h2><%= link_to post.title, post %></h2>
+      <p><%= post.content %></p>
+      <button class="">Add Comment</button>
+
+      <ul class="">
+        <h2>COMMENTS</h2>
+        <% post.comments.each do |comment| %>
+          <li>
+            <p> <%= comment.commentary %></p>
+
+            <!-- Display replies for the current comment -->
+            <ul class="">
+              <% comment.replies.each do |reply| %>
+                <li>
+                  <p><strong>USER said:</strong> <%= reply.commentary %></p>
+                </li>
+              <% end %>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>
