@@ -1,0 +1,8 @@
+
+<%# <% link_to "New Comment", new_post_comment_path(@post) %>
+<h1>Write a comment for <%= @post.title %> </h1>
+
+<%= simple_form_for([@post, @comment]) do |f| %>
+  <%= f.input :commentary %>
+  <%= f.submit %>
+<% end %>

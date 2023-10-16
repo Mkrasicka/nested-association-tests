@@ -1,21 +1,10 @@
-<h2>LISTED COMMENTS</h2>
-<% if @post.comments.empty? %>
-  <p>There are no comments yet.</p>
-<% else %>
-  <% @post.comments.each do |comment| %>
-    <li>
-      <p><%= comment.commentary %></p>
-      <ul class="">
-        <% comment.replies.each do |reply| %>
-          <li>
-            <p><strong>USER said:</strong> <%= reply.commentary %></p>
-          </li>
-        <% end %>
-      </ul>
-    </li>
-  <% end %>
-<% end %>
-<%# <% link_to "New Comment", new_post_comment_path(@post) %>
-<%= link_to "Back", posts_path %>
-<%# <%= link_to "Edit", edit_post_path(@post) %>
+<h1>Title:<%= @post.title %></h1>
+<%= render @post %>
+
+<div>
+  <%= link_to "Back", posts_path %>
+  <%= link_to "Edit", edit_post_path(@post) %>
+  <%= button_to "Destroy this post", @post , method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %>
+</div>
+
 <%# <%= link_to "Destroy" %>
