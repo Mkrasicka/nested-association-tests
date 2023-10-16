@@ -10,7 +10,8 @@ Post.destroy_all
 Comment.destroy_all
 
 puts "Creating posts and comments..."
-post = Post.create(title: "First Post", content: "this is my first post's content.")
+post = Post.create(title: "First", content: "this is my first post")
+post2 = Post.create(title: "Second", content: "this is my second post")
 
 
 parent_comment1 = Comment.create(commentary: "This is great!", post: post)

@@ -31,6 +31,8 @@ gem 'friendly_id', '~> 5.4.0'
 
 gem "devise"
 
+gem "simple_form"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

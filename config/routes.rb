@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
-  resources :posts, only: [:index, :show] do
+  resources :posts, only: [:index, :new, :show, :create, :edit] do
     resources :comments, only: [:create]
   end
 

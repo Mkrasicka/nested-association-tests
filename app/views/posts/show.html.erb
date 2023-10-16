@@ -1,17 +1,21 @@
-
+<h2>LISTED COMMENTS</h2>
+<% if @post.comments.empty? %>
+  <p>There are no comments yet.</p>
+<% else %>
+  <% @post.comments.each do |comment| %>
+    <li>
+      <p><%= comment.commentary %></p>
       <ul class="">
-        <h2>COMMENTS</h2>
-        <% @post.comments.each do |comment| %>
+        <% comment.replies.each do |reply| %>
           <li>
-            <p> <%= comment.commentary %></p>
-
-            <!-- Display replies for the current comment -->
-            <ul class="">
-              <% comment.replies.each do |reply| %>
-                <li>
-                  <p><strong>USER said:</strong> <%= reply.commentary %></p>
-                </li>
-              <% end %>
-            </ul>
+            <p><strong>USER said:</strong> <%= reply.commentary %></p>
           </li>
         <% end %>
+      </ul>
+    </li>
+  <% end %>
+<% end %>
+<%# <% link_to "New Comment", new_post_comment_path(@post) %>
+<%= link_to "Back", posts_path %>
+<%# <%= link_to "Edit", edit_post_path(@post) %>
+<%# <%= link_to "Destroy" %>
