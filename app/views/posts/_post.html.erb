@@ -1,25 +1,21 @@
-  <h3>Post Title: <%= @post.title %> </h1>
-  <p><strong>Content:</strong> <%= @post.content %> </p>
+<h3>Post Title: <%= @post.title %> </h3>
+<p><strong>Content:</strong> <%= @post.content %> </p>
 
-  <div>
-    <p> All Comments for <strong><%= @post.title %></strong> </p>
-    <% if @post.comments.empty? %>
-      <p>There are no comments yet.</p>
-    <% else %>
-      <% @post.comments.each do |comment| %>
-        <p><%= comment.commentary %></p>
-        <hr />
+<div>
+  <p> All Comments for <strong><%= @post.title %></strong> </p>
+  <% if @post.comments.empty? %>
+    <p>There are no comments yet.</p>
+  <% else %>
+    <% @post.comments.each_with_index do |comment, index| %>
+      <p><%= comment.commentary %></p>
+      <hr />
+      <% if index == @post.comments.size - 1 %>
         <%= link_to "Reply", new_post_comment_path(@post, parent_comment_id: comment.id) %>
-          <ul class="">
-            <% comment.comments.each do |reply| %>
-              <li>
-                <p><strong>USER said:</strong> <%= reply.commentary %></p>
-              </li>
-              <hr />
-            <% end %>
-          </ul>
       <% end %>
+      <ul class="">
+      </ul>
     <% end %>
-  </div>
+  <% end %>
+</div>
 
-  <%= link_to "Add comment", new_post_comment_path(@post) %>
+<%= link_to "Add comment", new_post_comment_path(@post) %>
