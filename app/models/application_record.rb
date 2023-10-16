@@ -1,3 +1,7 @@
 class ApplicationRecord < ActiveRecord::Base
-  primary_abstract_class
+  self.abstract_class = true
+
+  def uuid
+    SecureRandom.hex(6)
+  end
 end

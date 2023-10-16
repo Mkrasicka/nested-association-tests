@@ -1,0 +1,17 @@
+
+      <ul class="">
+        <h2>COMMENTS</h2>
+        <% @post.comments.each do |comment| %>
+          <li>
+            <p> <%= comment.commentary %></p>
+
+            <!-- Display replies for the current comment -->
+            <ul class="">
+              <% comment.replies.each do |reply| %>
+                <li>
+                  <p><strong>USER said:</strong> <%= reply.commentary %></p>
+                </li>
+              <% end %>
+            </ul>
+          </li>
+        <% end %>
