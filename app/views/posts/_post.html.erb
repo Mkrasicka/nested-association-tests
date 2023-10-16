@@ -8,15 +8,15 @@
   <% else %>
     <% @post.comments.each do |comment| %>
       <p><%= comment.commentary %></p>
+      <hr />
       <%# <%= link_to "Reply", new_comment_reply_path(comment) %>
         <ul class="">
-          <% comment.replies.each do |reply| %>
+          <% comment.comments.each do |reply| %>
             <li>
               <p><strong>USER said:</strong> <%= reply.commentary %></p>
             </li>
           <% end %>
         </ul>
-
     <% end %>
   <% end %>
 </div>
