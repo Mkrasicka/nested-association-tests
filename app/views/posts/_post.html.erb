@@ -7,13 +7,18 @@
     <p>There are no comments yet.</p>
   <% else %>
     <% @post.comments.each_with_index do |comment, index| %>
-      <p><%= comment.commentary %></p>
-      <hr />
-      <% if index == @post.comments.size - 1 %>
+      <div>
+        <p><%= comment.commentary %></p>
+        <hr />
         <%= link_to "Reply", new_post_comment_path(@post, parent_comment_id: comment.id) %>
-      <% end %>
-      <ul class="">
-      </ul>
+        <ul class="">
+          <% comment.comments.each do |reply| %>
+            <li>
+              <p><strong>USER said:</strong> <%= reply.commentary %></p>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     <% end %>
   <% end %>
 </div>

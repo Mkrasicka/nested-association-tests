@@ -1,14 +1,16 @@
-<h1>Listed Posts</h1>
-<div>
-  <ul>
-    <% @posts.each do |post| %>
-      <p>Title:<%= post.title %></p>
-      <p>Content:<%= post.content %></p>
-      <p>
-        <%= link_to "Show post", post %>
-      </p>
-    <% end %>
-  </ul>
-</div>
+<div class="container">
+  <h1>Listed Posts</h1>
+  <div>
+    <ul>
+      <% @posts.each do |post| %>
+        <p>Title:<%= post.title %></p>
+        <p>Content:<%= post.content %></p>
+        <p>
+          <%= link_to "Show post", post %>
+        </p>
+      <% end %>
+    </ul>
+  </div>
 
-<%= link_to "New Post", new_post_path %>
+  <%= link_to "New Post", new_post_path %>
+</div>

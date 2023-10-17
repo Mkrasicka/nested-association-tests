@@ -33,6 +33,8 @@ gem "devise"
 
 gem "simple_form"
 
+gem "webpacker"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
